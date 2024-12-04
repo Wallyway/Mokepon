@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+
+        <meta charset="utf-8" />
+        <title>MOKEPON!</title>
+        <script src="./js/mokepon.js"></script>
+        <link rel="stylesheet" href="./styles.css">
+        <link rel="stylesheet" href="./pokeball.css">
+        
+
+    </head>
+
+    <body>
+
+        <div class="glass"></div>
+
+        <section id="seleccionar-mascota" style="height: 100vh;">
+
+            <a id="title" href="https://fontmeme.com/pokemon-font/">
+                <img src="https://fontmeme.com/permalink/241204/29792458d0c6dd78edee6d818ccfcf70.png" alt="pokemon-font" border="0">
+            </a> 
+
+            <h1>Elige tu mascota:</h1>
+    
+            <label class="pokeball" for="hipodoge">
+                <img src="./assets/pokeball-closed.png" alt="Hipodoge" class="pokeball-img">
+                <img src="./assets/pokeball-opening-1.png" alt="Hipodoge" class="pokeball-img hidden">
+                <img src="./assets/pokeball-opening-2.png" alt="Hipodoge" class="pokeball-img hidden">
+            </label>
+            <input type="radio" name="mascota" id="hipodoge" />
+                
+            <label class="pokeball" for="capipepo">
+                <img src="./assets/pokeball-closed.png" alt="Hipodoge" class="pokeball-img">
+                <img src="./assets/pokeball-opening-1.png" alt="Hipodoge" class="pokeball-img hidden">
+                <img src="./assets/pokeball-opening-2.png" alt="Hipodoge" class="pokeball-img hidden">
+            </label>
+            <input type="radio" name="mascota" id="capipepo"/>
+                
+            <label class="pokeball"for="ratigueya">
+                <img src="./assets/pokeball-closed.png" alt="Hipodoge" class="pokeball-img">
+                <img src="./assets/pokeball-opening-1.png" alt="Hipodoge" class="pokeball-img hidden">
+                <img src="./assets/pokeball-opening-2.png" alt="Hipodoge" class="pokeball-img hidden">
+            </label>
+            <input type="radio" name="mascota" id="ratigueya" />
+    
+            <button class="boton-mascota" id="boton-mascota">Seleccionar</button>
+            
+
+        </section>
+
+        <section id="seleccionar-ataque">
+
+
+            <h1>Elige tu ataque:</h1>
+
+            <p>Tu mascota <span id="mascota-jugador"></span> tiene <span id="vidas-jugador">3</span> vidas</p>
+            <p>Las mascota <span id="mascota-enemigo"></span> del enemigo tiene <span id="vidas-enemigo">3</span> vidas</p>
+
+            <p>
+                <button id="boton-fuego">Fuego 🔥</button>
+                <button id="boton-agua">Agua 💧</button>
+                <button id="boton-tierra">Tierra 🌱</button>
+            </p>
+
+        </section>
+
+        <section id="mensajes">  
+        </section>
+
+        <section id="reiniciar">
+
+            <button id="boton-reiniciar">Reiniciar</button>
+
+        </section>
+
+    </body>
+
+</html>

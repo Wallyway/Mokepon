@@ -1,0 +1,128 @@
+
+body {
+    background-image: url(https://images6.alphacoders.com/641/thumb-1920-641430.jpg);
+    /* background-size:100% 100%; */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    margin: 0;
+    padding: 0;
+    font-family:'Times New Roman', Times, serif;
+
+}
+a:first-child {
+    transform: translate(1%, 20%);
+}
+
+.glass {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translate(115%, 30%);
+    width: 30%;
+    height: 70vh;
+    z-index: 1;
+
+    /* From https://css.glass */
+    background: rgba(91, 143, 253, 0.13);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(6.1px);
+    -webkit-backdrop-filter: blur(6.1px);
+    border: 1px solid rgba(91, 143, 253, 0.3);
+}
+
+
+
+#seleccionar-mascota{
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+    z-index: 2;
+}
+
+#seleccionar-mascota img {
+    position: relative;
+    top: -90px
+}
+
+.tarjeta-de-mokepones { 
+    width: 100px;
+    height: 100px;
+    background-color: bisque;
+    padding: 10px;
+    box-sizing: border-box;
+    margin: 10px;
+    border: 1px solid black
+}
+
+input {
+    display: none;
+}
+
+.boton-mascota {
+    position: relative;
+    background-color: transparent;
+    color: #e8e8e8;
+    font-size: 17px;
+    font-weight: 600;
+    border-radius: 10px;
+    width: 150px;
+    height: 60px;
+    border: none;
+    text-transform: uppercase;
+    cursor: pointer;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(51, 51, 51, 0.2);
+    transition: all 0.3s cubic-bezier(0.23, 1, 0.320, 1);
+}
+
+.boton-mascota::before {
+    content: "Hello!";
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    background: linear-gradient(135deg,#7b4397,#dc2430 );
+    transform: translate(0%,90%);
+    z-index: 99;
+    position: relative;
+    transform-origin: bottom;
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+  }
+  
+  .boton-mascota::after {
+    content: "Hover me";
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #333;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    transform-origin: top;
+    transform: translate(0%,-100%);
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+  }
+  
+  .boton-mascota:hover::before {
+    transform: translate(0%,0%);
+  }
+  
+  .boton-mascota:hover::after {
+    transform: translate(0%,-200%);
+  }
+  
+  .boton-mascota:focus {
+    outline: none;
+  }
+  
+  .boton-mascota:active {
+    scale: 0.95;
+  }
+  
