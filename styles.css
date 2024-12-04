@@ -12,18 +12,23 @@ body {
 }
 
 #title {
-    display: inline-block;
+    position: fixed;
+    display: block;
     margin: 0 auto;
-    transform: translate(1%, -1%);
+    transform: translate(50%, -280%);
+}
+
+h1 {
+    transform: translate(250%, -400%);
 }
 
 .glass {
-    position: absolute;
+    position:fixed;
     top: 0;
     left: 0;
-    transform: translate(115%, 30%);
-    width: 30%;
-    height: 70vh;
+    transform: translate(149%, 30%);
+    width: 25%;
+    height: 65vh;
     z-index: 1;
 
     /* From https://css.glass */
@@ -42,92 +47,81 @@ body {
     flex-direction:column;
     justify-content: center;
     align-items: center;
+    width: 30px;
+    height: 70vh;
 
     position: relative;
     z-index: 2;
+
 }
 
 #seleccionar-mascota img {
     position: relative;
-    top: -90px
-}
-
-.tarjeta-de-mokepones { 
-    width: 100px;
-    height: 100px;
-    background-color: bisque;
-    padding: 10px;
-    box-sizing: border-box;
-    margin: 10px;
-    border: 1px solid black
+    /* top: 100px */
 }
 
 input {
     display: none;
 }
 
-
-
 .boton-mascota {
+    --color: #4132cf;
+    font: family 0;;
+    display: inline-block;
+    width: 8em;
+    height: 2.6em;
+    line-height: 2.5em;
+    margin: 20px;
     position: relative;
-    background-color: transparent;
-    color: #e8e8e8;
-    font-size: 17px;
-    font-weight: 600;
-    border-radius: 10px;
-    width: 150px;
-    height: 60px;
-    border: none;
-    text-transform: uppercase;
     cursor: pointer;
     overflow: hidden;
-    box-shadow: 0 10px 20px rgba(51, 51, 51, 0.2);
-    transition: all 0.3s cubic-bezier(0.23, 1, 0.320, 1);
+    border: 2px solid var(--color);
+    transition: color 0.5s;
+    z-index: 1;
+    font-size: 20px;
+    border-radius: 6px;
+    font-weight: 1000;
+    color: var(--color);
+    background-color: rgb(211, 214, 23);
+
+    transform: translate(145%, -250%);
 }
 
 .boton-mascota::before {
-    content: "I'm ready!";
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    background: linear-gradient(135deg,#7b4397,#dc2430 );
-    transform: translate(0%,90%);
-    z-index: 99;
-    position: relative;
-    transform-origin: bottom;
-    transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
-  }
+    content: "";
+    position: absolute;
+    z-index: -1;
+    background: var(--color);
+    height: 150px;
+    width: 200px;
+    border-radius: 50%;
+}
+
+.boton-mascota:hover{
+    color: #fff;
+}
+
+.boton-mascota::before{
+    top: 100%;
+    left: 100%;
+    transition: all 0.7s;
+}
+
+.boton-mascota:hover:before {
+    top: -30px;
+    left: -30px;
+}
   
-  .boton-mascota::after {
-    content: "Ready?";
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #333;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    transform-origin: top;
-    transform: translate(0%,-100%);
-    transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
-  }
+.boton-mascota:active::before {
+    background: #3a0ca3;
+    transition: background 0s;
+}
   
-  .boton-mascota:hover::before {
-    transform: translate(0%,0%);
-  }
-  
-  .boton-mascota:hover::after {
-    transform: translate(0%,-200%);
-  }
-  
-  .boton-mascota:focus {
+.boton-mascota:focus {
     outline: none;
-  }
+}
   
-  .boton-mascota:active {
+.boton-mascota:active {
     scale: 0.95;
-  }
+}
   

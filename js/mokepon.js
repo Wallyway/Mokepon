@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
     let botonMascotaJugador = document.getElementById('boton-mascota')
     botonMascotaJugador.addEventListener('click', seleccionarMascotaJugador)
+    botonMascotaJugador.style.display = 'none'
 
     let botonFuego = document.getElementById('boton-fuego')
     botonFuego.addEventListener('click', ataqueFuego)
@@ -20,25 +21,51 @@ document.addEventListener('DOMContentLoaded', (event) => {
     botonReiniciar.addEventListener('click', reiniciarJuego)
     botonReiniciar.style.display = 'none'
 
-    // document.querySelectorAll('.pokeball').forEach(pokeball => {
-    //     pokeball.addEventListener('click', function() {
-    //         const inputId = this.getAttribute('for');
-    //         document.getElementById(inputId).checked = true;
-    //         console.log(inputId)
+    document.querySelectorAll('.pokeball').forEach(pokeball => {
+        pokeball.addEventListener('click', function() {
+            const inputId = this.getAttribute('for');
+            document.getElementById(inputId).checked = true;
 
-    //         const img = this.querySelector('.pokeball-img');
-    //         img.src = './assets/pokeball-opening-1.png';
+            const img = this.querySelector('.pokeball-img');
+            img.src = './assets/pokeball-opening-1.png';
+            img.style.animation = 'open 0.5s forwards';
 
-    //         setTimeout(() => {
-    //             img.src = './assets/pokeball-opening-2.png';
-    //         }, 200); // Adjust timing as needed
+            
 
-    //         seleccionarMascotaJugador(inputId);
-    //     });
-    // });
+            setTimeout(() => {
+                img.src = './assets/pokeball-opening-2.png';
+                // Hide other Pokeballs
+                document.querySelectorAll('.pokeball').forEach(otherPokeball => {
+                    if (otherPokeball !== pokeball) {
+                        otherPokeball.classList.add('hidden');
+                    }else{
+                        pokeball.classList.add('centered'); 
+                    }
+                });
+
+                setTimeout(() => {
+                    // Cambiar la imagen de la Pokeball a un GIF específico
+                    const selectedPokeball = document.querySelector('.pokeball input[type="radio"]:checked + img');
+                    if (inputId === 'hipodoge') {
+                        selectedPokeball.src = '"C://Users//jseba//OneDrive//Imágenes//Capturas de pantalla//avatar (1).jpg"'; // Ruta del GIF de Hipodoge
+                    } else if (inputId === 'capipepo') {
+                        selectedPokeball.src = './assets/capipepo.gif'; // Ruta del GIF de Capipepo
+                    } else if (inputId === 'ratigueya') {
+                        selectedPokeball.src = './assets/ratigueya.gif'; // Ruta del GIF de Ratigueya
+                    }
+
+                    
+                },10);
+            }, 90); // Adjust timing as needed
+
+            document.getElementById('boton-mascota').style.display = 'block'
+            
+        });
+    });
     
     //Seleccion Mascotas
     function seleccionarMascotaJugador() {
+        
         let inputHipodoge = document.getElementById('hipodoge')
         let inputCapipepo = document.getElementById('capipepo')
         let inputRatigueya = document.getElementById('ratigueya')
@@ -52,6 +79,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
             spanMascotaJugador.innerHTML = 'Ratigueya'
         } else {
             alert('Selecciona una mascota')
+            reload()
         }
 
         document.getElementById('seleccionar-mascota').style.display = 'none'

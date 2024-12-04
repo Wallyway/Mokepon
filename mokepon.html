@@ -13,36 +13,37 @@
 
     <body>
 
-        <div class="glass"></div>
+        <div class="glass">
 
-        <section id="seleccionar-mascota" style="height: 100vh;">
-            <a id="title">
-                <img src="https://fontmeme.com/permalink/241204/29792458d0c6dd78edee6d818ccfcf70.png" alt="pokemon-font" border="0">
-            </a> 
+            <section id="seleccionar-mascota" style="height: 100vh;">
+                <a id="title">
+                    <img src="https://fontmeme.com/permalink/241204/29792458d0c6dd78edee6d818ccfcf70.png" alt="pokemon-font" border="0">
+                </a> 
 
-            <h1>Elige tu mascota:</h1>
-            
-            <div class="pokeball-container">
-                <input type="radio" name="mascota" id="hipodoge" />
-                <label class="pokeball" for="hipodoge">
-                    <img src="./assets/pokeball-closed.png" alt="Hipodoge" class="pokeball-img">
+                <h1>Elige tu mascota:</h1>
+                
+                <div class="pokeball-container">
+                    <input type="radio" name="mascota" id="hipodoge" />
+                    <label class="pokeball" for="hipodoge">
+                        <img src="./assets/pokeball-closed.png" alt="Hipodoge" class="pokeball-img">
+                        
+                    </label>
                     
-                </label>
+                    
+                    <label class="pokeball" for="capipepo">
+                        <img src="./assets/pokeball-closed.png" alt="Capipepo" class="pokeball-img" id="capipepo-img">
+                    </label>
+                    <input type="radio" name="mascota" id="capipepo"/>
+                    
+                    <label class="pokeball" for="ratigueya">
+                        <img src="./assets/pokeball-closed.png" alt="Ratigueya" class="pokeball-img" id="ratigueya-img">
+                    </label>
+                    <input type="radio" name="mascota" id="ratigueya" />
+                </div>
                 
-                
-                <label class="pokeball" for="capipepo">
-                    <img src="./assets/pokeball-closed.png" alt="Capipepo" class="pokeball-img" id="capipepo-img">
-                </label>
-                <input type="radio" name="mascota" id="capipepo"/>
-                
-                <label class="pokeball" for="ratigueya">
-                    <img src="./assets/pokeball-closed.png" alt="Ratigueya" class="pokeball-img" id="ratigueya-img">
-                </label>
-                <input type="radio" name="mascota" id="ratigueya" />
-            </div>
-            
-            <button class="boton-mascota" id="boton-mascota">Seleccionar</button>
-        </section>
+                <button class="boton-mascota" id="boton-mascota">¡Fight!</button>
+            </section>
+        </div>
 
         <section id="seleccionar-ataque">
             <h1>Elige tu ataque:</h1>
@@ -66,5 +67,5 @@
         </section>
 
     </body>
-    
+
 </html>

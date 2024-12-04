@@ -1,8 +1,10 @@
 .pokeball-container {
     display: flex;
     justify-content:baseline;
-    gap: 1px; /* Adjust the gap between Pokeballs as needed */
+    gap: -1px; /* Adjust the gap between Pokeballs as needed */
     /* transform: translate(0px, 100px); */
+
+    transform: translate(76%, -120%);
 }
 
  .pokeball {
@@ -14,18 +16,24 @@
 
 } 
 
+.centered {
+    position: absolute;
+    top: 0%;
+    left: 64%;
+    transform: translate(0%, 0%);
+}
+
 .pokeball input[type="radio"] {
     display: none;
 }
 
-.pokeball input[type="radio"]:checked + img {
+.pokeball input[type="radio"]:checked + img{
     border: 3px solid #007bff; /* Añade un borde para indicar que está seleccionado */
 }
 
 .pokeball img {
     position: relative;
     display: flex;
-    /* transform: translate(0%,90%);  */
     height: 100px;
     width: 100px;
     align-items: center;
