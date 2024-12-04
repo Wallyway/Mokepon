@@ -7,11 +7,14 @@ body {
     background-attachment: fixed;
     margin: 0;
     padding: 0;
-    font-family:'Times New Roman', Times, serif;
+    /* font-family:'Times New Roman', Times, serif; */
 
 }
-a:first-child {
-    transform: translate(1%, 20%);
+
+#title {
+    display: inline-block;
+    margin: 0 auto;
+    transform: translate(1%, -1%);
 }
 
 .glass {
@@ -63,6 +66,8 @@ input {
     display: none;
 }
 
+
+
 .boton-mascota {
     position: relative;
     background-color: transparent;
@@ -81,7 +86,7 @@ input {
 }
 
 .boton-mascota::before {
-    content: "Hello!";
+    content: "I'm ready!";
     display: flex;
     align-items: center;
     justify-content: center;
@@ -97,7 +102,7 @@ input {
   }
   
   .boton-mascota::after {
-    content: "Hover me";
+    content: "Ready?";
     display: flex;
     align-items: center;
     justify-content: center;
