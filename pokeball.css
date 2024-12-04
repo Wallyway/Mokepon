@@ -4,7 +4,7 @@
     gap: -1px; /* Adjust the gap between Pokeballs as needed */
     /* transform: translate(0px, 100px); */
 
-    transform: translate(76%, -120%);
+    transform: translate(76%, -200%);
 }
 
  .pokeball {
