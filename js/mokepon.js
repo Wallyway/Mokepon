@@ -21,6 +21,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
     botonReiniciar.addEventListener('click', reiniciarJuego)
     botonReiniciar.style.display = 'none'
 
+    
+
     document.querySelectorAll('.pokeball').forEach(pokeball => {
         pokeball.addEventListener('click', function() {
             const inputId = this.getAttribute('for');
@@ -53,11 +55,12 @@ document.addEventListener('DOMContentLoaded', (event) => {
                     } else if (inputId === 'ratigueya') {
                         selectedPokeball.src = './assets/ratigueya.gif'; // Ruta del GIF de Ratigueya
                     }
-
+                    
                     
                 },10);
             }, 90); // Adjust timing as needed
-
+            
+            document.getElementById('boton-github').style.display = 'none'
             document.getElementById('boton-mascota').style.display = 'block'
             
         });
@@ -65,6 +68,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
     
     //Seleccion Mascotas
     function seleccionarMascotaJugador() {
+
+        
         
         let inputHipodoge = document.getElementById('hipodoge')
         let inputCapipepo = document.getElementById('capipepo')
