@@ -1,4 +1,4 @@
-![alt text](./assets/Screenshot%202024-12-04%20180358.png)
+<img src="./assets/Screenshot%202024-12-04%20180358.png" alt="Screenshot" width="300"/>
 
 # MOKEPON!
 
