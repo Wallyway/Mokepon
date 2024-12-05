@@ -31,8 +31,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
             const img = this.querySelector('.pokeball-img');
             img.src = './assets/pokeball-opening-1.png';
             img.style.animation = 'open 0.5s forwards';
-
-            
+  
 
             setTimeout(() => {
                 img.src = './assets/pokeball-opening-2.png';
@@ -45,17 +44,39 @@ document.addEventListener('DOMContentLoaded', (event) => {
                     }
                 });
 
-                //FIXME:Implement gifs to pokemons
                 setTimeout(() => {
                     // Cambiar la imagen de la Pokeball a un GIF específico
-                    const selectedPokeball = document.querySelector('.pokeball input[type="radio"]:checked + img');
-                    if (inputId === 'hipodoge') {
-                        selectedPokeball.src = '"C://Users//jseba//OneDrive//Imágenes//Capturas de pantalla//avatar (1).jpg"'; // Ruta del GIF de Hipodoge
-                    } else if (inputId === 'capipepo') {
-                        selectedPokeball.src = './assets/capipepo.gif'; // Ruta del GIF de Capipepo
-                    } else if (inputId === 'ratigueya') {
-                        selectedPokeball.src = './assets/ratigueya.gif'; // Ruta del GIF de Ratigueya
-                    }
+                    
+                    const selectedPokeball =  this.getAttribute('for');
+                    document.getElementById(inputId).checked = true;
+                    
+                    if(selectedPokeball){
+                        if (inputId === 'hipodoge') {
+                            document.getElementById('subtitle').style.display = 'none';
+                            document.getElementById('pokemon-subtitle').innerHTML = 'Hipodoge'
+                            document.getElementById('pokemon-subtitle').style.display = 'block';
+                            document.getElementById('pokeball-container').style.display = 'none';
+                            pokeball.classList.add('hidden');
+                            document.getElementById('hipodoge-img').style.display = 'block'
+                        } else if (inputId === 'capipepo') {
+                            document.getElementById('subtitle').style.display = 'none';
+                            document.getElementById('pokemon-subtitle').innerHTML = 'Capipepo'
+                            document.getElementById('pokemon-subtitle').style.display = 'block';
+                            document.getElementById('pokeball-container').style.display = 'none';
+                            pokeball.classList.add('hidden');
+                            document.getElementById('capipepo-img').style.display = 'block' // Ruta del GIF de Capipepo
+                        } else if (inputId === 'ratigueya') {
+                            document.getElementById('subtitle').style.display = 'none';
+                            document.getElementById('pokemon-subtitle').innerHTML = 'Ratigueya'
+                            document.getElementById('pokemon-subtitle').style.display = 'block';
+                            document.getElementById('pokeball-container').style.display = 'none';
+                            pokeball.classList.add('hidden');
+                            document.getElementById('ratigueya-img').style.display = 'block' // Ruta del GIF de Ratigueya
+                        }
+                    }else{
+                        console.error('No pokemon image found for the selected radio input')
+                    }    
+
                     
                     
                 },10);

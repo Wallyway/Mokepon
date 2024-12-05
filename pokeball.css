@@ -16,6 +16,39 @@
 
 } 
 
+.pokemones img {
+    position: relative;
+    display: block;
+    height: 200px;
+    width: 200px;
+    align-items: center;
+    justify-content: center;
+}
+
+.hipodoge-img {
+    position:fixed;
+    display:inline-block;
+    align-items: center;
+    justify-content: center;
+    transform: translate(118%,-90%);
+}
+
+.capipepo-img {
+    position:fixed;
+    display:inline-block;
+    align-items: center;
+    justify-content: center;
+    transform: translate(118%,-90%);
+}
+
+.ratigueya-img {
+    position:fixed;
+    display:inline-block;
+    align-items: center;
+    justify-content: center;
+    transform: translate(110%,-90%);
+}
+
 .centered {
     position: absolute;
     top: 0%;

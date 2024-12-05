@@ -60,6 +60,15 @@ h1 {
     font-weight: 900;
 }
 
+h2 {
+    transform: translate(205%, -500%);
+    width: 110px;
+    height: 40px;
+    color: #fff;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 900;
+}
+
 
 /*----.pokeball properties here*/
 
