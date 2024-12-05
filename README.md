@@ -1,4 +1,6 @@
-<img src="./assets/Screenshot%202024-12-04%20180358.png" alt="Screenshot" width="300"/>
+<div align="center">
+    <img src="./assets/Screenshot%202024-12-04%20180358.png" alt="Screenshot" width="500"/>
+</div>
 
 # MOKEPON!
 
