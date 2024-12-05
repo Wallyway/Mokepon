@@ -45,6 +45,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
                     }
                 });
 
+                //FIXME:Implement gifs to pokemons
                 setTimeout(() => {
                     // Cambiar la imagen de la Pokeball a un GIF específico
                     const selectedPokeball = document.querySelector('.pokeball input[type="radio"]:checked + img');
@@ -59,7 +60,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
                     
                 },10);
             }, 90); // Adjust timing as needed
-            
+
             document.getElementById('boton-github').style.display = 'none'
             document.getElementById('boton-mascota').style.display = 'block'
             
@@ -69,8 +70,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
     //Seleccion Mascotas
     function seleccionarMascotaJugador() {
 
-        
-        
         let inputHipodoge = document.getElementById('hipodoge')
         let inputCapipepo = document.getElementById('capipepo')
         let inputRatigueya = document.getElementById('ratigueya')
