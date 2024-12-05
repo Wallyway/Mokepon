@@ -1,3 +1,4 @@
+/* SECUENCE AS HTML */
 
 body {
     background-image: url(https://images6.alphacoders.com/641/thumb-1920-641430.jpg);
@@ -7,24 +8,7 @@ body {
     background-attachment: fixed;
     margin: 0;
     padding: 0;
-    /* font-family:'Times New Roman', Times, serif; */
 
-}
-
-#title {
-    position: fixed;
-    display: block;
-    margin: 0 auto;
-    transform: translate(50%, -280%);
-}
-
-h1 {
-    transform: translate(88%, -400%);
-    width: 252px;
-    height: 60px;
-    color: #fff;
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-weight: 900;
 }
 
 .glass {
@@ -47,8 +31,6 @@ h1 {
     border: 1px solid rgba(91, 143, 253, 0.3);
 }
 
-
-
 #seleccionar-mascota{
     display: flex;
     flex-direction:column;
@@ -62,14 +44,35 @@ h1 {
 
 }
 
+#title {
+    position: fixed;
+    display: block;
+    margin: 0 auto;
+    transform: translate(50%, -280%);
+}
+
+h1 {
+    transform: translate(88%, -400%);
+    width: 252px;
+    height: 60px;
+    color: #fff;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 900;
+}
+
+
+/*----.pokeball properties here*/
+
+input {
+    display: none;
+}
+
+
 #seleccionar-mascota img {
     position: relative;
     /* top: 100px */
 }
 
-input {
-    display: none;
-}
 
 .boton-mascota {
     --color: #4132cf;
