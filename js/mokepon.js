@@ -108,7 +108,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
         }
 
         document.getElementById('seleccionar-mascota').style.display = 'none'
-        document.getElementById('seleccionar-ataque').style.display = 'block'
+        document.getElementById('seleccionar-ataque').style.display = 'flex'
         
         seleccionarMascotaEnemigo()
 
@@ -220,23 +220,28 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
     function crearMensaje(resultado){
 
-        let sectionMensajes = document.getElementById('mensajes')
+        let sectionMensajes = document.getElementById('resultado')
+        let ataquesDelJugador = document.getElementById('ataques-del-jugador')
+        let ataquesDelEnemigo = document.getElementById('ataques-del-enemigo')
 
-        let newP = document.createElement('p')
-        newP.innerHTML = 'Tu mascota atacó con '+ ataqueJugador + ' la mascota del enemigo atacó con '+ ataqueEnemigo + ' - '+ resultado +'🎉'
+        let nuevoAtaqueDelJugador = document.createElement('p')
+        let nuevoAtaqueDelEnemigo = document.createElement('p')
 
-        sectionMensajes.appendChild(newP)
+        sectionMensajes.innerHTML = resultado
+        nuevoAtaqueDelJugador.innerHTML = ataqueJugador
+        nuevoAtaqueDelEnemigo.innerHTML = ataqueEnemigo
+
+        ataquesDelJugador.appendChild(nuevoAtaqueDelJugador)
+        ataquesDelEnemigo.appendChild(nuevoAtaqueDelEnemigo)
 
     }
 
     function crearMensajeFinal(resultadoFinal){
 
-        let sectionMensajes = document.getElementById('mensajes')
+        let sectionMensajes = document.getElementById('resultado')
 
-        let newP = document.createElement('p')
-        newP.innerHTML = resultadoFinal+' 🎉'
+        sectionMensajes.innerHTML = resultadoFinal
 
-        sectionMensajes.appendChild(newP)
 
         document.getElementById('boton-fuego').disabled=true
         document.getElementById('boton-agua').disabled=true

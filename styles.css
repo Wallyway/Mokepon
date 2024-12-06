@@ -15,8 +15,6 @@ body {
     position:fixed;
     display: block;
     margin: 0 auto;
-    top: 0;
-    left: 0;
     transform: translate(149%, 30%);
     width: 25%;
     height: 65vh;
@@ -48,16 +46,17 @@ body {
     position: fixed;
     display: block;
     margin: 0 auto;
-    transform: translate(4%, -68%);
+    /* transform: translate(4%, -68%); */
 }
 
 h1 {
-    transform: translate(88%, -400%);
-    width: 252px;
-    height: 60px;
+    transform: translate(83%, -500%);
+    width: 300px;
+    height: 40px;
     color: #fff;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-weight: 900;
+
 }
 
 h2 {
@@ -67,6 +66,8 @@ h2 {
     color: #fff;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-weight: 900;
+    display:block;
+    align-items: center;
 }
 
 
@@ -158,7 +159,7 @@ input {
     position: relative;
     background-color: rgb(0, 0, 0);
     overflow: hidden;
-    transform: translate(522%,-20%);
+    transform: translate(541%,10%);
 }
 
 .svgIcon {
@@ -206,4 +207,65 @@ input {
     opacity: 0;
     transition-duration: .4s;
 }
-  
+
+#seleccionar-ataque {
+    flex-direction: column;
+    align-items: center;
+}
+
+#attack-subtitle {
+    transform: translate(0%, 70%);
+    width: 230px;
+    height: 110px;
+    color: #fff;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 900;
+}
+
+#botones-ataque {
+    transform: translate(0%,20%);
+}
+
+.boton-de-ataque {
+    background-color: #4132cf;
+    color: #fff;
+    padding: 5px;
+    border-radius: 10px;
+    border-color: transparent;
+    cursor: pointer;
+}
+
+#mensajes {
+    width: 180px;
+    background-color: #fff;
+    color: #000000;
+    margin-top: 30px;
+    border-radius: 10px; 
+    display: flex;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 500;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+}
+
+#boton-reiniciar {
+    border: transparent;
+    color:#4132cf;
+    cursor: pointer;
+    
+}
+
+.ataques {
+    color: #fff;
+    display: grid;
+    grid-template-columns: 190px 190px;
+    grid-template-rows: 350px;
+    margin-top: 30px;
+    text-align: center;
+}
+
+#vidas-jugador, #vidas-enemigo { 
+    font-size: 32px;
+    margin-bottom: 0;
+}
