@@ -12,13 +12,15 @@ body {
 }
 
 .glass {
-    position:fixed;
+    position:relative;
     display: block;
-    margin: 0 auto;
-    transform: translate(149%, 30%);
-    width: 25%;
-    height: 65vh;
-    z-index: 1;
+    margin: 0% auto;
+    margin-top: 200px;
+    /* transform: translate(149%, 30%); */
+    width: 90%;
+    max-width: 400px;
+    height: 600px;
+    padding: 20px;
 
     /* From https://css.glass */
     background: rgba(91, 143, 253, 0.13);
@@ -27,6 +29,7 @@ body {
     backdrop-filter: blur(6.1px);
     -webkit-backdrop-filter: blur(6.1px);
     border: 1px solid rgba(91, 143, 253, 0.3);
+    text-align: center;
 }
 
 #seleccionar-mascota{
@@ -43,31 +46,28 @@ body {
 }
 
 #title {
-    position: fixed;
-    display: block;
-    margin: 0 auto;
-    /* transform: translate(4%, -68%); */
+    position: absolute; 
+    top: -110px; 
+    left:33%;
+    transform: translateX(-50%); 
+    z-index: 2; 
 }
-
-h1 {
-    transform: translate(83%, -500%);
-    width: 300px;
-    height: 40px;
-    color: #fff;
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-weight: 900;
+#title img{
+    max-width: 250%; /*Ensure the image scales if necessary*/
+    height: auto;
 
 }
 
-h2 {
-    transform: translate(205%, -500%);
-    width: 110px;
-    height: 40px;
+h1,h2 {
+    position: absolute;
     color: #fff;
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    width: 780%;
     font-weight: 900;
-    display:block;
-    align-items: center;
+    text-align:center;
+    top: 100px;
+    left: 80px;
+    /* transform: translate(80%, -2300%); */
+
 }
 
 
@@ -159,7 +159,8 @@ input {
     position: relative;
     background-color: rgb(0, 0, 0);
     overflow: hidden;
-    transform: translate(541%,10%);
+    transform: translate(541%,100%);
+    margin-left: -60px;
 }
 
 .svgIcon {
@@ -268,4 +269,118 @@ input {
 #vidas-jugador, #vidas-enemigo { 
     font-size: 32px;
     margin-bottom: 0;
+}
+
+/* Responsive Media Queries */
+@media (max-width: 768px) {
+    .glass {
+        width: 80%;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+        left: 80px;
+    }
+
+    .boton-mascota {
+        font-size: 0.9rem;
+        padding: 8px 16px;
+    }
+
+    .boton-github {
+        width: 40px;
+        height: 40px;
+        margin-top: 100px;
+        margin-left: -46px;
+    }
+}
+
+@media (max-width: 495px) {
+    .glass {
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 1.2rem;
+    }
+
+    #title {
+        left: 50%;
+    }
+
+    #title img{
+        max-width: 450px;
+        height: auto;
+    }
+
+    .boton-mascota {
+        font-size: 0.8rem;
+        padding: 6px 12px;
+    }
+
+    .boton-github {
+        width: 40px;
+        height: 40px;
+        margin-top: 0px;
+        margin-left: -56px;
+    }
+}
+
+@media (max-width: 440px) {
+    h1 {
+        font-size: 1rem;
+        margin-left: -45px;
+    }
+
+    #title {
+        left: 50%;
+        top: -90px;
+    }
+
+    #title img{
+        
+        max-width: 340px;
+        height: auto;
+    }
+
+    .boton-mascota {
+        font-size: 0.7rem;
+    }
+
+    .boton-github {
+        width: 40px;
+        height: 40px;
+        margin-top: 100px;
+        margin-left: -99px;
+    }
+
+}
+
+@media (max-width: 360px){
+    h1 {
+        font-size: 1rem;
+        margin-left: -60px;
+    }
+
+    #title {
+        left: 50%;
+        top: -90px;
+    }
+
+    #title img{
+        
+        max-width: 340px;
+        height: auto;
+    }
+
+    .boton-mascota {
+        font-size: 0.7rem;
+    }
+
+    .boton-github {
+        width: 40px;
+        height: 40px;
+        margin-top: 100px;
+        margin-left: -112px;
+    }
 }

@@ -1,13 +1,15 @@
 .pokeball-container {
+    position: flex;
     display: flex;
     justify-content:baseline;
     gap: -1px; 
-    transform: translate(76%, -160%);
+    transform: translate(65%, -160%);
+    margin-top: 280px;
 }
 
 .pokeball {
     position: relative;
-    display: flex;
+    display:flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
@@ -23,28 +25,12 @@
     justify-content: center;
 }
 
-.hipodoge-img {
+.hipodoge-img, .capipepo-img, .ratigueya-img {
     position:fixed;
     display:inline-block;
     align-items: center;
     justify-content: center;
     transform: translate(118%,-90%);
-}
-
-.capipepo-img {
-    position:fixed;
-    display:inline-block;
-    align-items: center;
-    justify-content: center;
-    transform: translate(118%,-90%);
-}
-
-.ratigueya-img {
-    position:fixed;
-    display:inline-block;
-    align-items: center;
-    justify-content: center;
-    transform: translate(110%,-90%);
 }
 
 .centered {
@@ -63,18 +49,17 @@
 }
 
 .pokeball img {
-    position: relative;
-    display: flex;
+    position: absolute;
+    /* display: flex; */
     height: 100px;
     width: 100px;
-    align-items: center;
-    justify-content: center;
+    /* align-items: center;
+    justify-content: center; */
     cursor: pointer;
     
 }
 
 .pokeball img:hover {
-    
     animation: shake 0.5s;
     animation-iteration-count: infinite;
 }
@@ -94,7 +79,7 @@
 }
 
 .pokeball-img {
-    position: relative;
+    position: absolute;
     display:inline-block;
     cursor: pointer;
 }
@@ -102,5 +87,77 @@
 .hidden { 
     opacity: 0;
     pointer-events: none;
+}
+
+@media (max-width: 768px) {
+    
+    .pokeball-container {
+        gap: 15px;
+        margin-top: 240px;
+        margin-bottom: 100px;
+        margin-left: -10px;
+    }
+
+    .pokeball img {
+        height: 90px;
+        width: 90px;
+        cursor: pointer;
+        margin-top: -100px;
+    }
+
+}
+
+@media (max-width: 495px) {
+   
+    .pokeball-container {
+        gap: 1px;
+        margin-left: 5px;
+        margin-top: 100px;
+        margin-bottom: 100px;
+    }
+
+    .pokeball img {
+        height: 90px;
+        width: 90px;
+        cursor: pointer;
+    }
+    
+}
+
+@media (max-width: 440px) {
+
+    .pokeball-container {
+        gap: 0px;
+        width: 1px;
+        height: 1px;
+        margin-left: 5px;
+        margin-top: 180px;
+    }
+
+    .pokeball img {
+        position: absolute; 
+        height: 90px;
+        width: 90px;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+    }
+}
+
+@media (max-width: 360px) {
+    
+    .pokeball-container {
+        gap: 0px;
+        width: 0.1px;
+        height: 0.1px;
+        margin-left: 6px;
+        margin-top: 100px;
+    }
+
+    .pokeball img {
+        height: 80px;
+        width: 80px;
+        cursor: pointer;
+    }
 }
 
