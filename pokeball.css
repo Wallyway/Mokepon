@@ -16,6 +16,8 @@
 
 } 
 
+
+
 .pokemones img {
     position: relative;
     display: block;
@@ -26,11 +28,13 @@
 }
 
 .hipodoge-img, .capipepo-img, .ratigueya-img {
-    position:fixed;
-    display:inline-block;
+    position:relative;
+    display:flex;
     align-items: center;
     justify-content: center;
-    transform: translate(118%,-90%);
+    margin-top: 85px;
+    margin-left: 400px;
+    /* transform: translate(100%,-0%); */
 }
 
 .centered {
@@ -112,8 +116,8 @@
     .pokeball-container {
         gap: 1px;
         margin-left: 5px;
-        margin-top: 100px;
-        margin-bottom: 100px;
+        margin-top: 190px;
+        margin-bottom: 170px;
     }
 
     .pokeball img {
@@ -130,8 +134,9 @@
         gap: 0px;
         width: 1px;
         height: 1px;
-        margin-left: 5px;
-        margin-top: 180px;
+        margin-left: 40px;
+        margin-top: 200px;
+        margin-bottom: 120px;
     }
 
     .pokeball img {
@@ -142,6 +147,17 @@
         justify-content: center;
         cursor: pointer;
     }
+
+    .hipodoge-img, .capipepo-img, .ratigueya-img {
+        position:relative;
+        display:flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 85px;
+        margin-left: 350px;
+        /* transform: translate(100%,-0%); */
+    }
+
 }
 
 @media (max-width: 360px) {
@@ -158,6 +174,15 @@
         height: 80px;
         width: 80px;
         cursor: pointer;
+    }
+
+    .hipodoge-img, .capipepo-img, .ratigueya-img {
+        position:relative;
+        display:flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 85px;
+        margin-left: 260px;
     }
 }
 

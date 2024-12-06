@@ -61,11 +61,12 @@ body {
 h1,h2 {
     position: absolute;
     color: #fff;
-    width: 780%;
+    width:920%;
     font-weight: 900;
     text-align:center;
     top: 100px;
-    left: 80px;
+    left: 70px;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     /* transform: translate(80%, -2300%); */
 
 }
@@ -88,10 +89,12 @@ input {
     --color: #4132cf;
     font: family 0;;
     display: inline-block;
-    width: 8em;
-    height: 2.6em;
-    line-height: 2.5em;
+    width: 6em;
+    height: 1.8em;
+    line-height: 0.8em;
     margin: 20px;
+    margin-top: 60px;
+    margin-left: 400px;
     position: relative;
     cursor: pointer;
     overflow: hidden;
@@ -104,7 +107,8 @@ input {
     color: var(--color);
     background-color: rgb(211, 214, 23);
 
-    transform: translate(145%, -250%);
+
+    /* transform: translate(145%, -5%); */
 }
 
 .boton-mascota::before {
@@ -215,16 +219,21 @@ input {
 }
 
 #attack-subtitle {
-    transform: translate(0%, 70%);
+    /* transform: translate(0%, 70%); */
+    margin-left: 40px;
     width: 230px;
-    height: 110px;
+    height: 50px;
     color: #fff;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-weight: 900;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 #botones-ataque {
-    transform: translate(0%,20%);
+    /* transform: translate(0%,500%); */
+    margin-top: 140px;
 }
 
 .boton-de-ataque {
@@ -262,7 +271,6 @@ input {
     display: grid;
     grid-template-columns: 190px 190px;
     grid-template-rows: 350px;
-    margin-top: 30px;
     text-align: center;
 }
 
@@ -277,9 +285,9 @@ input {
         width: 80%;
     }
 
-    h1 {
+    h1,h2 {
         font-size: 1.5rem;
-        left: 80px;
+        left: 65px;
     }
 
     .boton-mascota {
@@ -300,8 +308,9 @@ input {
         padding: 15px;
     }
 
-    h1 {
+    h1,h2 {
         font-size: 1.2rem;
+        margin-left: -22px;
     }
 
     #title {
@@ -324,12 +333,25 @@ input {
         margin-top: 0px;
         margin-left: -56px;
     }
+
+    #attack-subtitle {
+        /* transform: translate(0%, 70%); */
+        margin-left: 15px;
+        width: 230px;
+        height: 50px;
+        color: #fff;
+        font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-weight: 900;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 }
 
 @media (max-width: 440px) {
-    h1 {
+    h1,h2 {
         font-size: 1rem;
-        margin-left: -45px;
+        margin-left: -30px;
     }
 
     #title {
@@ -345,19 +367,21 @@ input {
 
     .boton-mascota {
         font-size: 0.7rem;
+        margin-left: 330px;
     }
 
     .boton-github {
         width: 40px;
         height: 40px;
         margin-top: 100px;
-        margin-left: -99px;
+        margin-left: -89px;
     }
 
 }
 
 @media (max-width: 360px){
-    h1 {
+
+    h1,h2 {
         font-size: 1rem;
         margin-left: -60px;
     }
@@ -374,7 +398,7 @@ input {
     }
 
     .boton-mascota {
-        font-size: 0.7rem;
+        margin-left: 265px;
     }
 
     .boton-github {
@@ -382,5 +406,18 @@ input {
         height: 40px;
         margin-top: 100px;
         margin-left: -112px;
+    }
+
+    #attack-subtitle {
+        /* transform: translate(0%, 70%); */
+        margin-left: -35px;
+        width: 230px;
+        height: 50px;
+        color: #fff;
+        font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-weight: 900;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 }

@@ -57,7 +57,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
                             document.getElementById('pokemon-subtitle').style.display = 'block';
                             document.getElementById('pokeball-container').style.display = 'none';
                             pokeball.classList.add('hidden');
-                            document.getElementById('hipodoge-img').style.display = 'block'
+                            document.getElementById('hipodoge-img').style.display = 'flex'
+
                         } else if (inputId === 'capipepo') {
                             document.getElementById('subtitle').style.display = 'none';
                             document.getElementById('pokemon-subtitle').innerHTML = 'Capipepo'
