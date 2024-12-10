@@ -8,9 +8,6 @@ const botonReiniciar = document.getElementById('boton-reiniciar')
 const subtitulo = document.getElementById('subtitle')
 const subtituloMokepon = document.getElementById('pokemon-subtitle')
 
-const inputHipodoge = document.getElementById('hipodoge')
-const inputCapipepo = document.getElementById('capipepo')
-const inputRatigueya = document.getElementById('ratigueya')
 const spanMascotaJugador = document.getElementById('mascota-jugador')
 
 const spanMascotaEnemigo = document.getElementById('mascota-enemigo')
@@ -27,6 +24,9 @@ let mokepones = []
 let ataqueJugador
 let ataqueEnemigo
 let opcionDeMokepones
+let inputHipodoge
+let inputCapipepo 
+let inputRatigueya
 let vidasJugador = 3
 let vidasEnemigo = 3
 
@@ -82,6 +82,10 @@ document.addEventListener('DOMContentLoaded', (event) => {
             </label>
             `
         contenedorMokepones.innerHTML += opcionDeMokepones
+
+        inputHipodoge = document.getElementById('hipodoge')
+        inputCapipepo = document.getElementById('capipepo')
+        inputRatigueya = document.getElementById('ratigueya')
     })
 
     botonMascotaJugador.addEventListener('click', seleccionarMascotaJugador)
@@ -162,15 +166,14 @@ document.addEventListener('DOMContentLoaded', (event) => {
     });
     
     //Seleccion Mascotas
-    FIXME://Cannot read properties of null (reading 'checked') at HTMLButtonElement.seleccionarMascotaJugador
     function seleccionarMascotaJugador() {
         
         if (inputHipodoge.checked) {
-            spanMascotaJugador.innerHTML = 'hipodoge'
+            spanMascotaJugador.innerHTML = 'Hipodoge'
         } else if (inputCapipepo.checked) {
-            spanMascotaJugador.innerHTML = 'capipepo'
+            spanMascotaJugador.innerHTML = 'Capipepo'
         } else if (inputRatigueya.checked) {
-            spanMascotaJugador.innerHTML = 'ratigueya'
+            spanMascotaJugador.innerHTML = 'Ratigueya'
         } else {
             alert('Selecciona una mascota')
             reload()
