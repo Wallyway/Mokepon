@@ -5,6 +5,9 @@ const botonFuego = document.getElementById('boton-fuego')
 const botonTierra = document.getElementById('boton-tierra')
 const botonReiniciar = document.getElementById('boton-reiniciar')
 
+const subtitulo = document.getElementById('subtitle')
+const subtituloMokepon = document.getElementById('pokemon-subtitle')
+
 const inputHipodoge = document.getElementById('hipodoge')
 const inputCapipepo = document.getElementById('capipepo')
 const inputRatigueya = document.getElementById('ratigueya')
@@ -18,6 +21,7 @@ const spanVidasEnemigo = document.getElementById('vidas-enemigo')
 const sectionMensajes = document.getElementById('resultado')
 const ataquesDelJugador = document.getElementById('ataques-del-jugador')
 const ataquesDelEnemigo = document.getElementById('ataques-del-enemigo')
+const contenedorMokepones = document.getElementById('mokepones')
 
 let mokepones = []
 let ataqueJugador
@@ -27,17 +31,18 @@ let vidasJugador = 3
 let vidasEnemigo = 3
 
 class Mokepon {
-    constructor(nombre, gif, vida){
+    constructor(nombre, gif, vida, pokeball){
         this.nombre = nombre
         this.gif = gif
         this.vida = vida
+        this.pokeball = pokeball
         this.ataques = []
     }
 }
 
-let hipodoge = new Mokepon('Hipodoge', './assets/pokemon-1.gif', 5)
-let capipepo = new Mokepon('Capipepo', './assets/pokemon-2.gif', 5)
-let ratigueya = new Mokepon('Ratigueya', './assets/pokemon-3.gif', 5)
+let hipodoge = new Mokepon('hipodoge', './assets/pokemon-1.gif', 5, 'pokeball-1')
+let capipepo = new Mokepon('capipepo', './assets/pokemon-2.gif', 5, 'pokeball-2')
+let ratigueya = new Mokepon('ratigueya', './assets/pokemon-3.gif', 5,'pokeball-3')
 
 hipodoge.ataques.push(
     {tipo: 'Agua', id: 'boton-agua'},
@@ -69,7 +74,14 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
     mokepones.forEach((mokepon) => {
         //template literario
-        opcionDeMokepones = 2
+        opcionDeMokepones = `
+            <input type="radio" name="mascota" id="${mokepon.nombre}" />
+            <label class="pokeball" for="${mokepon.nombre}">
+                <img src="./assets/pokeball-closed.png" alt="${mokepon.nombre}" class="pokeball-img" id="${mokepon.pokeball}">
+                <img src="${mokepon.gif}" alt="${mokepon.nombre}" id="${mokepon.nombre}-img" style='display: none;'> </img>
+            </label>
+            `
+        contenedorMokepones.innerHTML += opcionDeMokepones
     })
 
     botonMascotaJugador.addEventListener('click', seleccionarMascotaJugador)
@@ -90,7 +102,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
             const img = this.querySelector('.pokeball-img');
             img.src = './assets/pokeball-opening-1.png';
             img.style.animation = 'open 0.5s forwards';
-  
+            
+            
 
             setTimeout(() => {
                 img.src = './assets/pokeball-opening-2.png';
@@ -103,6 +116,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
                     }
                 });
 
+                
+
                 setTimeout(() => {
                     // Cambiar la imagen de la Pokeball a un GIF específico
                     
@@ -111,27 +126,26 @@ document.addEventListener('DOMContentLoaded', (event) => {
                     
                     if(selectedPokeball){
                         if (inputId === 'hipodoge') {
-                            document.getElementById('subtitle').style.display = 'none';
-                            document.getElementById('pokemon-subtitle').innerHTML = 'Hipodoge'
+                            subtitulo.style.display = 'none';
+                            subtituloMokepon.innerHTML = 'Hipodoge'
                             document.getElementById('pokemon-subtitle').style.display = 'block';
-                            document.getElementById('pokeball-container').style.display = 'none';
-                            pokeball.classList.add('hidden');
-                            document.getElementById('hipodoge-img').style.display = 'flex'
+                            document.getElementById('pokeball-1').style.display = 'none'
+                            document.getElementById('hipodoge-img').style.display = 'block';
 
                         } else if (inputId === 'capipepo') {
-                            document.getElementById('subtitle').style.display = 'none';
-                            document.getElementById('pokemon-subtitle').innerHTML = 'Capipepo'
+                            subtitulo.style.display = 'none';
+                            subtituloMokepon.innerHTML = 'Capipepo'
                             document.getElementById('pokemon-subtitle').style.display = 'block';
-                            document.getElementById('pokeball-container').style.display = 'none';
-                            pokeball.classList.add('hidden');
+                            document.getElementById('pokeball-2').style.display = 'none'
                             document.getElementById('capipepo-img').style.display = 'block' // Ruta del GIF de Capipepo
+                            
                         } else if (inputId === 'ratigueya') {
-                            document.getElementById('subtitle').style.display = 'none';
-                            document.getElementById('pokemon-subtitle').innerHTML = 'Ratigueya'
+                            subtitulo.style.display = 'none';
+                            subtituloMokepon.innerHTML = 'Ratigueya'
                             document.getElementById('pokemon-subtitle').style.display = 'block';
-                            document.getElementById('pokeball-container').style.display = 'none';
-                            pokeball.classList.add('hidden');
+                            document.getElementById('pokeball-3').style.display = 'none'
                             document.getElementById('ratigueya-img').style.display = 'block' // Ruta del GIF de Ratigueya
+                            
                         }
                     }else{
                         console.error('No pokemon image found for the selected radio input')
@@ -148,14 +162,15 @@ document.addEventListener('DOMContentLoaded', (event) => {
     });
     
     //Seleccion Mascotas
+    FIXME://Cannot read properties of null (reading 'checked') at HTMLButtonElement.seleccionarMascotaJugador
     function seleccionarMascotaJugador() {
         
         if (inputHipodoge.checked) {
-            spanMascotaJugador.innerHTML = 'Hipodoge'
+            spanMascotaJugador.innerHTML = 'hipodoge'
         } else if (inputCapipepo.checked) {
-            spanMascotaJugador.innerHTML = 'Capipepo'
+            spanMascotaJugador.innerHTML = 'capipepo'
         } else if (inputRatigueya.checked) {
-            spanMascotaJugador.innerHTML = 'Ratigueya'
+            spanMascotaJugador.innerHTML = 'ratigueya'
         } else {
             alert('Selecciona una mascota')
             reload()
