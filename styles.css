@@ -58,7 +58,7 @@ body {
 
 }
 
-h1,h2 {
+h1 {
     position: absolute;
     color: #fff;
     width:920%;
@@ -219,7 +219,6 @@ input {
 }
 
 #attack-subtitle {
-    /* transform: translate(0%, 70%); */
     margin-left: 40px;
     width: 230px;
     height: 50px;
@@ -231,8 +230,7 @@ input {
     align-items: center;
 }
 
-#botones-ataque {
-    /* transform: translate(0%,500%); */
+.botones-ataque {
     margin-top: 140px;
 }
 
@@ -285,7 +283,7 @@ input {
         width: 80%;
     }
 
-    h1,h2 {
+    h1 {
         font-size: 1.5rem;
         left: 65px;
     }
@@ -308,7 +306,7 @@ input {
         padding: 15px;
     }
 
-    h1,h2 {
+    h1 {
         font-size: 1.2rem;
         margin-left: -22px;
     }
@@ -349,7 +347,7 @@ input {
 }
 
 @media (max-width: 440px) {
-    h1,h2 {
+    h1 {
         font-size: 1rem;
         margin-left: -30px;
     }
@@ -381,7 +379,7 @@ input {
 
 @media (max-width: 360px){
 
-    h1,h2 {
+    h1 {
         font-size: 1rem;
         margin-left: -60px;
     }
