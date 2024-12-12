@@ -19,6 +19,9 @@ const ataquesDelEnemigo = document.getElementById('ataques-del-enemigo')
 const contenedorMokepones = document.getElementById('mokepones')
 const contenedorAtaques = document.getElementById('ataques-container')
 
+const sectionVerMapa = document.getElementById('ver-mapa')
+const mapa = document.getElementById('mapa')
+
 let mokepones = []
 let ataqueJugador = []
 let ataqueEnemigo = []
@@ -35,6 +38,8 @@ let botonTierra
 let botones = []
 let indexAtaqueJugador
 let indexAtaqueEnemigo
+let lienzo = mapa.getContext("2d")
+let intervalo
 let victoriasJugador = 0
 let victoriasEnemigo = 0
 let vidasJugador = 3
@@ -47,6 +52,14 @@ class Mokepon {
         this.vida = vida
         this.pokeball = pokeball
         this.ataques = []
+        this.x = 20
+        this.y = 30
+        this.ancho = 80
+        this.alto = 80
+        this.mapaFoto = new Image()
+        this.mapaFoto.src = gif
+        this.velocidadX = 0
+        this.velocidadY = 0
     }
 }
 
@@ -81,6 +94,7 @@ mokepones.push(hipodoge,capipepo,ratigueya)
 document.addEventListener('DOMContentLoaded', (event) => {
     
     sectionSeleccionarAtaque.style.display = 'none'
+    sectionVerMapa.style.display = 'none'
 
     mokepones.forEach((mokepon) => {
         //template literario
@@ -184,8 +198,13 @@ document.addEventListener('DOMContentLoaded', (event) => {
         }
 
         document.getElementById('seleccionar-mascota').style.display = 'none'
-        sectionSeleccionarAtaque.style.display= 'flex'
+        sectionVerMapa.style.display = 'flex'
+        iniciarMapa()
         
+        // pintarPersonaje()
+       
+        //sectionSeleccionarAtaque.style.display= 'flex'
+
         extraerAtaques(mascotaJugador)
         seleccionarMascotaEnemigo()
     }
@@ -347,12 +366,73 @@ document.addEventListener('DOMContentLoaded', (event) => {
         return Math.floor(Math.random() * (max - min + 1)) + min
     }
 
-
     function reiniciarJuego(){
         location.reload()
     }
 
 });
 
+function pintarPersonaje(){
+    hipodoge.x=hipodoge.x + hipodoge.velocidadX
+    hipodoge.y=hipodoge.y + hipodoge.velocidadY
+    lienzo.clearRect(0, 0, mapa.width, mapa.height)
+    lienzo.drawImage(
+        hipodoge.mapaFoto,
+        hipodoge.x,
+        hipodoge.y,
+        hipodoge.ancho,
+        hipodoge.alto
+    )
+}
+
+function moverDer(){
+    hipodoge.velocidadX = 5
+}
+
+function moverIzq(){
+    hipodoge.velocidadX = -5
+
+}
+
+function moverAbajo(){
+    hipodoge.velocidadY = 5
+}
+
+function moverArriba(){
+    hipodoge.velocidadY = -5
+}
+
+function detenerMovimiento (){
+    hipodoge.velocidadX = 0
+    hipodoge.velocidadY = 0
+}
+
+function keyPressed(event){
+    switch (event.key) {
+        case 'ArrowUp':
+            moverArriba()
+            break
+        case 'ArrowDown':
+            moverAbajo()
+            break
+        case 'ArrowLeft':
+            moverIzq()
+            break
+        case 'ArrowRight':
+            moverDer()
+            break;
+        default:
+            console.log ("Invalid Key")
+            break;
+    }
+}
+
+function iniciarMapa(){
+    intervalo = setInterval(pintarPersonaje, 50)
+
+    window.addEventListener('keydown',keyPressed)
+    window.addEventListener('keyup' ,detenerMovimiento)
+
+}
 
 
