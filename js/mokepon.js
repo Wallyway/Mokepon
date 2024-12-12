@@ -22,6 +22,8 @@ const contenedorAtaques = document.getElementById('ataques-container')
 const sectionVerMapa = document.getElementById('ver-mapa')
 const mapa = document.getElementById('mapa')
 
+const audio = document.getElementById('audio')
+
 let mokepones = []
 let ataqueJugador = []
 let ataqueEnemigo = []
@@ -92,6 +94,8 @@ mokepones.push(hipodoge,capipepo,ratigueya)
 
 
 document.addEventListener('DOMContentLoaded', (event) => {
+
+    audio.volume = 0.05;
     
     sectionSeleccionarAtaque.style.display = 'none'
     sectionVerMapa.style.display = 'none'
