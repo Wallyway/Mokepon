@@ -1,0 +1,22 @@
+{
+  "name": "mokepon",
+  "version": "1.0.0",
+  "description": "<div align=\"center\">\r     <img src=\"./assets/Screenshot%202024-12-04%20180358.png\" alt=\"Screenshot\" width=\"500\"/>\r </div>",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Wallyway/mokepon.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Wallyway/mokepon/issues"
+  },
+  "homepage": "https://github.com/Wallyway/mokepon#readme",
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}
