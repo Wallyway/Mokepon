@@ -25,6 +25,7 @@ const mapa = document.getElementById('mapa')
 
 const audio = document.getElementById('audio')
 
+let jugadorId = null
 let mokepones = []
 let ataqueJugador = []
 let ataqueEnemigo = []
@@ -243,6 +244,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
                     res.text()
                         .then(function(respuesta){
                             console.log(respuesta)
+                            jugadorId = respuesta
                         })
                 }
             })
@@ -265,10 +267,26 @@ document.addEventListener('DOMContentLoaded', (event) => {
             reload()
         }
         document.getElementById('seleccionar-mascota').style.display = 'none'
-    
+        
+        seleccionarMokepon(mascotaJugador) //Enviar Datos al Back
+
         extraerAtaques(mascotaJugador)
         sectionVerMapa.style.display = 'flex'
         iniciarMapa()
+        
+    }
+
+    function seleccionarMokepon(mascotaJugador){
+        fetch(`http://localhost:8080/mokepon/${jugadorId}`, {
+
+            method:"post",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                mokepon: mascotaJugador
+            })
+        })
         
     }
 
