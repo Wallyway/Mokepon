@@ -145,7 +145,7 @@ ratigueyaEnemigo.ataques.push(
 
 
 document.addEventListener('DOMContentLoaded', (event) => {
-
+    unirseAlJuego()
     audio.volume = 0.05;
     
     sectionSeleccionarAtaque.style.display = 'none'
@@ -235,6 +235,18 @@ document.addEventListener('DOMContentLoaded', (event) => {
             document.getElementById('boton-mascota').style.display = 'block'
         });
     });
+
+    function unirseAlJuego(){
+        fetch("http://localhost:8080/join")
+            .then(function(res){
+                if(res.ok){
+                    res.text()
+                        .then(function(respuesta){
+                            console.log(respuesta)
+                        })
+                }
+            })
+    }
     
     //Seleccion Mascotas
     function seleccionarMascotaJugador() {
