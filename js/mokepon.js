@@ -463,6 +463,9 @@ document.addEventListener('DOMContentLoaded', (event) => {
             mapa.height
         )
         mascotaJugadorObjeto.pintarMokepon()
+
+        enviarPosicion(mascotaJugadorObjeto.x, mascotaJugadorObjeto.y)
+
         hipodogeEnemigo.pintarMokepon()
         capipepoEnemigo.pintarMokepon()
         ratigueyaEnemigo.pintarMokepon()
@@ -475,6 +478,22 @@ document.addEventListener('DOMContentLoaded', (event) => {
         }
         
     }
+
+    function enviarPosicion(x,y){
+        fetch(`http://localhost:8080/mokepon/${jugadorId}/posicion`, {
+            method: "post",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                x,         //JS entiende esto cuando la clave valor es igual al valor
+                y
+            })
+
+        })
+
+    }
+   
 
     function revisarColision(enemigo){
         const arribaEnemigo = enemigo.y
