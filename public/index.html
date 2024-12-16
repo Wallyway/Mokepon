@@ -42,11 +42,11 @@
                 <h1 id="subtitleMapa">Take a walk</h1>
                 <canvas id="mapa"></canvas>
 
-                <button id= "boton-moverArriba" onmousedown="moverArriba()" onmouseup="detenerMovimiento()">Up</button>
+                <button id= "boton-moverArriba"  onmousedown="moverArriba()" onmouseup="detenerMovimiento()" ontouchstart="moverArriba()" ontouchend="detenerMovimiento()">Up</button>
                 <div>
-                    <button id= "boton-moverIzq" onmousedown="moverIzq()" onmouseup="detenerMovimiento()">Left</button>
-                    <button id= "boton-moverAbajo" onmousedown="moverAbajo()" onmouseup="detenerMovimiento()">Down</button>
-                    <button id= "boton-moverDer" onmousedown="moverDer()" onmouseup="detenerMovimiento()">Right</button>
+                    <button id= "boton-moverIzq" onmousedown="moverIzq()" onmouseup="detenerMovimiento()" ontouchstart="moverIzq()" ontouchend="detenerMovimiento()">Left</button>
+                    <button id= "boton-moverAbajo" onmousedown="moverAbajo()" onmouseup="detenerMovimiento()" ontouchstart="moverAbajo()" ontouchend="detenerMovimiento()">Down</button>
+                    <button id= "boton-moverDer" onmousedown="moverDer()" onmouseup="detenerMovimiento()" ontouchstart="moverDer()" ontouchend="detenerMovimiento()">Right</button>
                 </div>
 
             </section>

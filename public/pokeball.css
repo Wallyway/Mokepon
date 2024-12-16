@@ -153,9 +153,9 @@
     
     .pokeball-container {
         gap: 5px;
-        margin-top: 240px;
+        margin-top: 250px;
         margin-bottom: 100px;
-        margin-left: -80px;
+        margin-left: -30px;
     }
 
     .pokeball img  {
@@ -170,8 +170,8 @@
         display:flex;
         align-items: center;
         justify-content: center;
-        margin-top: -150px;
-        margin-left: 80px;
+        margin-top: -130px;
+        margin-left: 50px;
     }
 }
 

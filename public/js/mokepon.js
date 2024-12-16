@@ -26,6 +26,7 @@ const mapa = document.getElementById('mapa')
 const audio = document.getElementById('audio')
 
 let jugadorId = null
+let enemigoId = null
 let mokepones = []
 let mokeponesEnemigos = []
 let ataqueJugador = []
@@ -316,12 +317,43 @@ document.addEventListener('DOMContentLoaded', (event) => {
                     boton.style.background = '#fff' 
                     boton.disabled = true
                }
-               ataqueEnemigoAleatorio()
+
+               if(ataqueJugador.length === 5){
+                enviarAtaques()
+               }
                 
+            })
+        }) 
+    }
+
+    function enviarAtaques(){
+        fetch(`http://localhost:8080/mokepon/${jugadorId}/ataques`,{
+            method: "post",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                ataques: ataqueJugador
             })
         })
 
-        
+        intervalo = setInterval(obtenerAtaques, 50)
+    }
+
+    function obtenerAtaques(){
+        fetch(`http://localhost:8080/mokepon/${enemigoId}/ataques`)
+            .then(function(res){
+                if(res.ok){
+                    res.json()
+                        .then(function({ ataques }){
+                            if(ataques.length === 5){
+                                ataqueEnemigo = ataques
+                                combate()
+                            }
+                            
+                        })
+                }
+            })
     }
 
     function seleccionarMascotaEnemigo(enemigo){    
@@ -358,6 +390,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
     }
 
     function combate(){
+        clearInterval(intervalo)
 
         for (let i = 0; i < ataqueJugador.length; i++) {
             if (ataqueJugador[i] === ataqueEnemigo[i]) {
@@ -447,17 +480,11 @@ document.addEventListener('DOMContentLoaded', (event) => {
         mascotaJugadorObjeto.pintarMokepon()
 
         enviarPosicion(mascotaJugadorObjeto.x, mascotaJugadorObjeto.y)
-        
+
         mokeponesEnemigos.forEach(function(mokepon){
             mokepon.pintarMokepon()
+            revisarColision(mokepon)
         })
-    
-        if(mascotaJugadorObjeto.velocidadX !== 0 || mascotaJugadorObjeto.velocidadY !== 0){
-            revisarColision(hipodogeEnemigo)
-            revisarColision(capipepoEnemigo)
-            revisarColision(ratigueyaEnemigo)
-    
-        }
         
     }
 
@@ -480,16 +507,23 @@ document.addEventListener('DOMContentLoaded', (event) => {
                         console.log(enemigos)
                         
                         mokeponesEnemigos = enemigos.map(function(enemigo){
-                            let mokeponEnemigo = null
-                            const mokeponNombre = enemigo.mokepon.nombre
-                            if(mokeponNombre === "Hipodoge"){
-                               mokeponEnemigo = new Mokepon('Hipodoge', './assets/pokemon-1.gif', 5, 'pokeball-1')
-                            }else if(mokeponNombre === "Capipepo"){
-                                mokeponEnemigo = new Mokepon('Capipepo', './assets/pokemon-2.gif', 5, 'pokeball-2')
-                            }else if(mokeponNombre === "Ratigueya"){
-                                mokeponEnemigo = new Mokepon('Ratigueya', './assets/pokemon-3.gif', 5,'pokeball-3')
-                            }
-
+                           let mokeponEnemigo = null
+                           if(enemigo.mokepon != undefined){
+                                const mokeponNombre = enemigo.mokepon.nombre
+                                switch (mokeponNombre){
+                                    case "Hipodoge":
+                                        mokeponEnemigo = new Mokepon('Hipodoge', './assets/pokemon-1.gif', 5, 'pokeball-1', enemigo.id)
+                                        break
+                                    case "Capipepo":
+                                        mokeponEnemigo = new Mokepon('Capipepo', './assets/pokemon-2.gif', 5, 'pokeball-2', enemigo.id)
+                                        break
+                                    case "Ratigueya":
+                                        mokeponEnemigo = new Mokepon('Ratigueya', './assets/pokemon-3.gif', 5,'pokeball-3', enemigo.id)
+                                        break
+                                    default:
+                                        break
+                                }
+                           }
                             mokeponEnemigo.x = enemigo.x
                             mokeponEnemigo.y = enemigo.y
 
@@ -528,6 +562,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
         }
         detenerMovimiento()
         clearInterval(intervalo)
+        enemigoId = enemigo.id
         sectionSeleccionarAtaque.style.display= 'flex'
         sectionVerMapa.style.display = 'none'
         seleccionarMascotaEnemigo(enemigo)
