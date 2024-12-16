@@ -27,6 +27,7 @@ const audio = document.getElementById('audio')
 
 let jugadorId = null
 let mokepones = []
+let mokeponesEnemigos = []
 let ataqueJugador = []
 let ataqueEnemigo = []
 let opcionDeMokepones
@@ -446,10 +447,10 @@ document.addEventListener('DOMContentLoaded', (event) => {
         mascotaJugadorObjeto.pintarMokepon()
 
         enviarPosicion(mascotaJugadorObjeto.x, mascotaJugadorObjeto.y)
-
-        // hipodogeEnemigo.pintarMokepon()
-        // capipepoEnemigo.pintarMokepon()
-        // ratigueyaEnemigo.pintarMokepon()
+        
+        mokeponesEnemigos.forEach(function(mokepon){
+            mokepon.pintarMokepon()
+        })
     
         if(mascotaJugadorObjeto.velocidadX !== 0 || mascotaJugadorObjeto.velocidadY !== 0){
             revisarColision(hipodogeEnemigo)
@@ -478,7 +479,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
                     .then(function ({ enemigos }){
                         console.log(enemigos)
                         
-                        enemigos.forEach(function(enemigo){
+                        mokeponesEnemigos = enemigos.map(function(enemigo){
                             let mokeponEnemigo = null
                             const mokeponNombre = enemigo.mokepon.nombre
                             if(mokeponNombre === "Hipodoge"){
@@ -491,7 +492,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
                             mokeponEnemigo.x = enemigo.x
                             mokeponEnemigo.y = enemigo.y
-                            mokeponEnemigo.pintarMokepon()
+
+                            return mokeponEnemigo
                         })
                         
                         
