@@ -41,7 +41,17 @@ To run this project locally, follow these steps:
     cd mokepon
     ```
 
-3. Open `index.html` in your preferred web browser.
+3. Install the dependencies:
+    ```sh
+    npm install
+    ```
+
+4. Start the server:
+    ```sh
+    node index.js
+    ```
+
+5. Open `index.html` in your preferred web browser.
 
 ## Usage
 
